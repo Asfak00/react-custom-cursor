@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+// react animate cursor
+import AnimatedCursor from "react-animated-cursor";
 
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="app">
+        <h1>React Custom Cursor</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={8}
+        color="193, 11, 111"
+        outerAlpha={0.2}
+        innerScale={0.7}
+        showSystemCursor={true}
+        innerStyle={{
+          backgroundColor: "#193b68",
+        }}
+        outerStyle={{
+          border: "2px solid #193b68",
+          borderRadius: "50%",
+          padding: "20px",
+          backgroundColor: "transparent",
+        }}
+        outerScale={5}
+        clickables={[
+          "h1",
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          "label[for]",
+          "select",
+          "textarea",
+          "button",
+          ".link",
+        ]}
+      />
+    </>
+  );
+};
+
+export default App;
